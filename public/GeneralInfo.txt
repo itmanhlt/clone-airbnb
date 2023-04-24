@@ -1,0 +1,29 @@
+24/04/2023
+thu vien: 
+- react-icon
+- react-redux, redux-toolkit
+- tailwind, antd
+- sweetaleart
+- react-router-dom
+- axios
+- react-reponsive	
+- react-multi-carousel
+- moment
+- spinner
+
+Pages:
+----USER UI------
+- Đăng nhập (/log-in)
+- Đăng ký (/log-up)
+- Trang chủ (/)
+- Chi tiết (/room-detail)
+- Chuyến đi (/tickets-by-user)
+- Thông tin cá nhân (/personal-info)
+- Tìm kiếm (/room-by-city)
+----ADMIN UI------
+- Quản lý đặt phòng (/admin/dat-phong) 
+- Quản lý phòng  (/admin/phong-thue) -> dùng cho tìm kiếm
+- Quản lý người dùng (/admin/nguoi-dung)
+- Quản lý bình luận (/admin/binh-luan)
+- Quản lý vị trí (/admin/vi-tri)
+__________________________
