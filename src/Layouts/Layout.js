@@ -1,7 +1,13 @@
 import React from 'react'
+import HeaderOtherPage from '../Components/Header/HeaderOtherPage/HeaderOtherPage'
 
-export default function Layout() {
+export default function Layout({ Components }) {
   return (
-    <div>Layout</div>
+    <>
+        <HeaderOtherPage />
+        <div className='flex-grow'>
+            <Components />
+        </div>
+    </>
   )
-}
+}       
