@@ -5,3 +5,4 @@ export default function PersonnalInfoPage() {
     <div>PersonnalInfoPage</div>
   )
 }
+ 
