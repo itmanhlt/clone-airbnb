@@ -1,0 +1,76 @@
+import React from "react";
+import { useMediaQuery } from "react-responsive";
+
+export default function HomePageFilter() {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  return (
+    <div>
+      {isMobile ? (
+        <div style={{ padding: "14px 24px 0 24px" }}>
+          <div
+            style={{ boxShadow: "0 3px 10px #0000001a" }}
+            className="flex justify-between items-center bg-[#ffffff] border-[0.5px] border-solid border-[#00000014] rounded-[1000px] text-[#222222] min-h-[56px] min-w-[285px] cursor-pointer"
+          >
+            <div class="flex items-center">
+              <div style={{ padding: "0 16px 0 20px" }}>
+                <svg
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                  style={{
+                    display: "block",
+                    height: "16px",
+                    width: "16px",
+                    fill: "currentcolor",
+                  }}
+                >
+                  <path
+                    d="M13 0c7.18 0 13 5.82 13 13 0 2.868-.929 5.519-2.502 7.669l7.916 7.917-2.828 2.828-7.917-7.916A12.942 12.942 0 0 1 13 26C5.82 26 0 20.18 0 13S5.82 0 13 0zm0 4a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"
+                    opacity=".8"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <div className="flex text-[15px] font-semibold ">
+                  <p className="leading-4">Địa điểm bất kỳ</p>
+                </div>
+                <div className="flex items-center text-[13px] ">
+                  <p className="leading-4">tuần bất kỳ</p>
+                  <p className="leading-4 px-[5px]">.</p>
+                  <p className="leading-4">Thêm khách</p>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <button aria-label="Hiển thị bộ lọc" type="button" class="">
+                <div class="border border-solid border-[#dddddd] rounded-[25px] h-9 w-9 flex justify-center items-center mx-[10px]">
+                  <div class="">
+                    <svg
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="presentation"
+                      focusable="false"
+                      style={{
+                        display: "block",
+                        height: "16px",
+                        width: "16px",
+                        fill: "rgb(34, 34, 34)",
+                      }}
+                    >
+                      <path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>HomePageFilter Desktop</div>
+      )}
+    </div>
+  );
+}
