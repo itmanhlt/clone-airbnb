@@ -1,17 +1,21 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { showFilter } from "../../../redux/filterSlice";
 
 export default function HomePageFilter() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  let dispatch = useDispatch();
   return (
-    <div>
+    <div className="cursor-pointer">
       {isMobile ? (
         <div style={{ padding: "14px 24px 0 24px" }}>
           <div
             style={{ boxShadow: "0 3px 10px #0000001a" }}
             className="flex justify-between items-center bg-[#ffffff] border-[0.5px] border-solid border-[#00000014] rounded-[1000px] text-[#222222] min-h-[56px] min-w-[285px] cursor-pointer"
           >
-            <div class="flex items-center">
+            <div className="flex items-center">
               <div style={{ padding: "0 16px 0 20px" }}>
                 <svg
                   viewBox="0 0 32 32"
@@ -43,10 +47,10 @@ export default function HomePageFilter() {
                 </div>
               </div>
             </div>
-            <div class="">
-              <button aria-label="Hiển thị bộ lọc" type="button" class="">
-                <div class="border border-solid border-[#dddddd] rounded-[25px] h-9 w-9 flex justify-center items-center mx-[10px]">
-                  <div class="">
+            <div>
+              <button aria-label="Hiển thị bộ lọc" type="button">
+                <div className="border border-solid border-[#dddddd] rounded-[25px] h-9 w-9 flex justify-center items-center mx-[10px]">
+                  <div>
                     <svg
                       viewBox="0 0 16 16"
                       xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +73,17 @@ export default function HomePageFilter() {
           </div>
         </div>
       ) : (
-        <div>HomePageFilter Desktop</div>
+        <div
+          onClick={() => dispatch(showFilter())}
+          className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px]"
+        >
+          <span className="border-r pr-5 truncate">Địa điểm bất kì</span>
+          <span className="border-r pr-5 truncate">Tuần bất kì</span>
+          <span className="truncate">Thêm khách</span>
+          <span className="p-[8px] rounded-[50%] bg-[#FF385C] text-white">
+            <AiOutlineSearch />
+          </span>
+        </div>
       )}
     </div>
   );

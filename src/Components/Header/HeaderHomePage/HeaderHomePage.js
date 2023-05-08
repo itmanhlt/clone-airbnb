@@ -1,20 +1,21 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import HomePageFilter from "../Filter/HomePageFilter";
-import UserMenu from "../../UserMenu/UserMenu";
 import { NavLink } from "react-router-dom";
+import UserMenuDeskTop from "../../UserMenu/UserMenuDeskTop";
+import UserMenuMobile from "../../UserMenu/UserMenuMobile";
 
 export default function HeaderHomePage() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
-    <div>
+    <div className="fixed top-0 bg-white w-full">
       <header>
-        <div className="md:flex">
+        <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5 md:border-y md:shadow-md">
           {isMobile ? (
             <></>
           ) : (
             <div className="header-logo">
-              <NavLink to="/" hre className="text-[#FF385C]">
+              <NavLink to="/" className="text-[#FF385C]">
                 <div>
                   <svg width="102" height="32" style={{ display: "block" }}>
                     <path
@@ -30,11 +31,11 @@ export default function HeaderHomePage() {
               </NavLink>
             </div>
           )}
-          <div className="header-filter">
+          <div className="header-filter px-6">
             <HomePageFilter />
           </div>
           <div className="header-userMenu">
-            <UserMenu />
+            {isMobile ? <UserMenuMobile /> : <UserMenuDeskTop />}
           </div>
         </div>
       </header>
