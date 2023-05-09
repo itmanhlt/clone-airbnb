@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* start HomePage */
+/* start RoomList */
+#homePage #roomList .react-multiple-carousel__arrow {
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 35px;
+    z-index: 1000;
+    border: gray 1px solid;
+    background: white;
+    min-width: 22px;
+    min-height: 22px;
+    opacity: 1;
+    cursor: pointer;
+    transition: all.5s;
+}
+
+#homePage #roomList .react-multiple-carousel__arrow:hover {
+    scale: 1.1;
+}
+
+#homePage #roomList .react-multiple-carousel__arrow::before {
+    font-size: 10px;
+    color: black;
+    font-weight: 700;
+}
+
+#homePage #roomList .react-multiple-carousel__arrow--left {
+    left: calc(0% + 1px);
+}
+
+#homePage #roomList .react-multiple-carousel__arrow--right {
+    right: calc(0% + 1px);
+}
+
+#homePage #roomList .react-multi-carousel-dot--active button {
+    background: whitesmoke;
+}
+
+#homePage #roomList .react-multi-carousel-dot button {
+    border-width: 1.5px;
+}
+
+.imgRoomType img {
+    filter: opacity(0.4) drop-shadow(0 0 0 black);
+}
+
+.imgRoomType::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #717171;
+    opacity: 0;
+    transition: all.7s;
+}
+
+.imgRoomType:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+.imgRoomType:hover img {
+    filter: opacity(1);
+}
+
+.imgRoomType:hover p {
+    color: black;
+}
+
+/* end RoomList */
+/* end HomePage */
