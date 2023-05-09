@@ -8,10 +8,11 @@ export default function HomePageFilter() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   let dispatch = useDispatch();
   return (
-    <div className="cursor-pointer">
+    <div>
       {isMobile ? (
         <div style={{ padding: "14px 24px 0 24px" }}>
           <div
+            onClick={() => dispatch(showFilter())}
             style={{ boxShadow: "0 3px 10px #0000001a" }}
             className="flex justify-between items-center bg-[#ffffff] border-[0.5px] border-solid border-[#00000014] rounded-[1000px] text-[#222222] min-h-[56px] min-w-[285px] cursor-pointer"
           >

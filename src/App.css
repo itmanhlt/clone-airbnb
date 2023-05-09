@@ -43,3 +43,7 @@
   background: -webkit-linear-gradient(to left, #f093fb, #f5576c);
   background: linear-gradient(to left, #f093fb, #f5576c);
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
