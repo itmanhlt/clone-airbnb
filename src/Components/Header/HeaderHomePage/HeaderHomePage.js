@@ -7,8 +7,9 @@ import UserMenuMobile from "../../UserMenu/UserMenuMobile";
 
 export default function HeaderHomePage() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
-    <div className="fixed top-0 bg-white w-full">
+    <div className="header-home fixed top-0 bg-white w-full z-[1200]">
       <header>
         <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5 md:border-y md:shadow-md">
           {isMobile ? (

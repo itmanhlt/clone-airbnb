@@ -34,7 +34,7 @@ export const routes = [
     component: <Layout Components={RoomByCityPage} />,
   },
   {
-    url: "/RoomDetailPage",
+    url: "/RoomDetailPage/:id",
     component: <Layout Components={RoomDetailPage} />,
   },
   {

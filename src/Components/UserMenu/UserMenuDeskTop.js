@@ -3,9 +3,11 @@ import { BiGlobe } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import { localService } from "../../services/LocalService";
 
 export default function UserMenuDeskTop() {
   const [status, setStatus] = useState("none");
+  let user = localService.get();
   let handlePopup = () => {
     if (status === "none") {
       setStatus("block");
@@ -14,18 +16,79 @@ export default function UserMenuDeskTop() {
     }
   };
 
-  return (
-    <div>
-      <div className="flex justify-between items-center space-x-4">
-        <div className="cursor-pointer text-[14px] font-medium hidden lg:block">
-          Cho thuê chỗ ở qua Airbnb
+  let renderPopup = () => {
+    return (
+      <div
+        style={{ display: status }}
+        className="absolute bg-white right-10 top-16 shadow-md rounded-lg"
+      >
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink
+            className="font-medium hover:text-[#FF385C] duration-500"
+            to="/register"
+          >
+            Đăng ký
+          </NavLink>
+          <NavLink to="/login" className="hover:text-[#FF385C] duration-500">
+            Đăng nhập
+          </NavLink>
         </div>
-        <div className="cursor-pointer">
-          <BiGlobe />
+        <div className="flex flex-col p-3 pr-10 space-y-3">
+          <NavLink to="/" className="hover:text-[#FF385C] duration-500">
+            Cho thuê chỗ ở qua Airbnb
+          </NavLink>
+          <NavLink className="hover:text-[#FF385C] duration-500" to="/">
+            Trợ giúp
+          </NavLink>
         </div>
+      </div>
+    );
+  };
+
+  let handleSignOut = () => {
+    localService.remove();
+    window.location.reload();
+  };
+  let renderPopupLogin = () => {
+    return (
+      <div
+        style={{ display: status }}
+        className="absolute bg-white right-10 top-16 shadow-md rounded-lg"
+      >
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink
+            className="font-medium hover:text-[#FF385C] duration-500"
+            to="/TicketByUserPage"
+          >
+            Lịch sử đặt phòng
+          </NavLink>
+          <NavLink
+            to="/PersonnalInfoPage"
+            className=" font-medium hover:text-[#FF385C] duration-500"
+          >
+            Thông tin cá nhân
+          </NavLink>
+        </div>
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink to="/" className="hover:text-[#FF385C] duration-500">
+            Cho thuê chỗ ở qua Airbnb
+          </NavLink>
+          <NavLink to="/" className="hover:text-[#FF385C] duration-500">
+            Trợ giúp
+          </NavLink>
+        </div>
+        <div className="p-3 hover:text-[#FF385C] duration-500">
+          <NavLink onClick={handleSignOut}>Đăng xuất</NavLink>
+        </div>
+      </div>
+    );
+  };
+  let renderAvatar = () => {
+    if (!user) {
+      return (
         <div
           onClick={handlePopup}
-          className="flex items-center p-2 border rounded-[1000px] space-x-2 cursor-pointer hover:shadow-md duration-500"
+          className="flex items-center z-[1500] p-2 border rounded-[1000px] space-x-2 cursor-pointer hover:shadow-md duration-500"
         >
           <div>
             <AiOutlineMenu />
@@ -34,31 +97,39 @@ export default function UserMenuDeskTop() {
             <IoPersonOutline />
           </div>
         </div>
-      </div>
-      <div
-        style={{ display: status }}
-        className="absolute bg-white right-10 top-16 shadow-md rounded-lg"
-      >
-        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
-          <NavLink
-            className="font-medium hover:text-[#FF385C] duration-500"
-            to="/"
-          >
-            Đăng ký
-          </NavLink>
-          <NavLink className="hover:text-[#FF385C] duration-500" to="/">
-            Đăng nhập
-          </NavLink>
+      );
+    } else {
+      return (
+        <div onClick={handlePopup} className="p-2 border rounded-full">
+          <img
+            className="w-5"
+            src={
+              user.user.avatar !== ""
+                ? user.user.avatar
+                : "../img/airbnb-seeklogo.com.svg"
+            }
+            alt=""
+          />
         </div>
-        <div className="flex flex-col p-3 pr-10 space-y-3">
-          <NavLink className="hover:text-[#FF385C] duration-500" to="/">
-            Cho thuê chỗ ở qua Airbnb
-          </NavLink>
-          <NavLink className="hover:text-[#FF385C] duration-500" to="/">
-            Trợ giúp
-          </NavLink>
+      );
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex justify-between items-center space-x-4 ">
+        <div className="cursor-pointer text-[14px] font-medium hidden lg:block">
+          Cho thuê chỗ ở qua Airbnb
         </div>
+        <div className="cursor-pointer">
+          <BiGlobe />
+        </div>
+        {renderAvatar()}
       </div>
+      {/* popup  */}
+      {user ? renderPopupLogin() : renderPopup()}
+      {/* {renderPopup()} */}
+      {/* {renderPopupLogin()} */}
     </div>
   );
 }

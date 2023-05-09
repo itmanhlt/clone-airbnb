@@ -31,7 +31,7 @@ export default function UserMenuMobile() {
   return (
     <div
       style={{ visibility: status }}
-      className="fixed bottom-0 w-full bg-white border-t shadow-md"
+      className="fixed bottom-0 w-full bg-white border-t shadow-lg z-[1200]"
     >
       <div className="flex justify-evenly items-center -space-x-10  py-2">
         <NavLink to="/" className="flex flex-col justify-center items-center">
@@ -46,7 +46,10 @@ export default function UserMenuMobile() {
           </div>
           <div className="text-xs">Yêu thích</div>
         </NavLink>
-        <NavLink to="/" className="flex flex-col justify-center items-center">
+        <NavLink
+          to="/login"
+          className="flex flex-col justify-center items-center"
+        >
           <div>
             <IoPersonOutline size={"24px"} />
           </div>

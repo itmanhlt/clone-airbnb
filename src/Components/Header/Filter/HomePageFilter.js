@@ -2,7 +2,7 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { showFilter } from "../../../redux/filterSlice";
+import { showFilter } from "../../../redux/reducers/filterSlice";
 
 export default function HomePageFilter() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
