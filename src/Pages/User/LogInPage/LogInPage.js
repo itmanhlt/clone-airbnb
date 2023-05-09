@@ -20,7 +20,7 @@ export default function LogInPage() {
         message.success("Login successful");
         dispatch(getUserLogin(res.data.content));
         localService.set(res.data.content);
-        navigate("/");
+        navigate(-1);
       } catch (error) {
         message.error("You entered the wrong account or password!");
       }
