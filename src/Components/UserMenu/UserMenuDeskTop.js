@@ -100,7 +100,10 @@ export default function UserMenuDeskTop() {
       );
     } else {
       return (
-        <div onClick={handlePopup} className="p-2 border rounded-full">
+        <div
+          onClick={handlePopup}
+          className="p-2 border rounded-full hover:shadow-lg duration-500"
+        >
           <img
             className="w-5"
             src={

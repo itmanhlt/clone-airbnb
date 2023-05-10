@@ -76,7 +76,7 @@ export default function HomePageFilter() {
       ) : (
         <div
           onClick={() => dispatch(showFilter())}
-          className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px]"
+          className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px] cursor-pointer"
         >
           <span className="border-r pr-5 truncate">Địa điểm bất kì</span>
           <span className="border-r pr-5 truncate">Tuần bất kì</span>

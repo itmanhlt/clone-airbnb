@@ -27,3 +27,6 @@ Pages:
 - Quản lý bình luận (/admin/binh-luan)
 - Quản lý vị trí (/admin/vi-tri)
 __________________________
+
+README -> ghi account người dùng + account admin cho mentor test 
+add file phân chia công việc
