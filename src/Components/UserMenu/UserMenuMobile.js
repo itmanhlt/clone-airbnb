@@ -33,7 +33,7 @@ export default function UserMenuMobile() {
   return (
     <div
       style={{ visibility: status }}
-      className="fixed bottom-0 w-full bg-white border-t shadow-lg z-[1200]"
+      className="fixed bottom-0 w-full bg-white shadow-2xl z-[1200]"
     >
       <div className="flex justify-evenly items-center -space-x-10  py-2">
         <NavLink to="/" className="flex flex-col justify-center items-center">

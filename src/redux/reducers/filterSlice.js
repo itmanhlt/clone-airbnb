@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  status: "none",
+  status: "top-0",
 };
 
 export const filterSlice = createSlice({
@@ -9,10 +9,10 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     showFilter: (state) => {
-      if (state.status === "none") {
-        state.status = "block";
+      if (state.status === "top-0") {
+        state.status = "top-20";
       } else {
-        state.status = "none";
+        state.status = "top-0";
       }
     },
     hiddenFilter: (state) => {

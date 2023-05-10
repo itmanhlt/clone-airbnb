@@ -9,7 +9,7 @@ export default function OtherPageFilter() {
     <div className="px-6 pt-[14px] md:p-0">
       <div
         onClick={() => dispatch(showFilter())}
-        className="flex justify-between items-center md:gap-28 shadow-md cursor-pointer border px-5 py-1 rounded-[1000px]"
+        className="flex justify-between items-center md:gap-28 shadow-lg cursor-pointer border px-5 py-1 rounded-[1000px]"
       >
         <div className="font-medium text-[14px] truncate">Bắt đầu tìm kiếm</div>
         <div className="p-2 border rounded-[50%] bg-[#92174D] text-white">

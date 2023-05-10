@@ -11,7 +11,7 @@ export default function HeaderHomePage() {
   return (
     <div className="header-home fixed top-0 bg-white w-full z-[1200]">
       <header>
-        <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5 md:border-y md:shadow-md">
+        <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5">
           {isMobile ? (
             <></>
           ) : (
