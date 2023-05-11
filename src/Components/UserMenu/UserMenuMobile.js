@@ -60,7 +60,15 @@ export default function UserMenuMobile() {
           </NavLink>
         ) : (
           <NavLink className="flex flex-col justify-center items-center">
-            <img className="w-6" src={user.user.avatar} alt="" />
+            <img
+              className="w-6"
+              src={
+                user.user.avatar !== ""
+                  ? user.user.avatar
+                  : "../img/airbnb-seeklogo.com.svg"
+              }
+              alt=""
+            />
             <div className="text-xs">{user.user.name}</div>
           </NavLink>
         )}

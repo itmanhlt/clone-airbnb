@@ -7,10 +7,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import login_animation from "../../../assets/login_animation.json";
 import Lottie from "lottie-react";
 import { localService } from "../../../services/LocalService";
+import { useHistory } from "react-router-dom";
 
 export default function LogInPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let stringQuery = window.location.path;
+  console.log(stringQuery);
 
   // handle
   const onFinish = (values) => {
@@ -20,7 +23,7 @@ export default function LogInPage() {
         message.success("Login successful");
         dispatch(getUserLogin(res.data.content));
         localService.set(res.data.content);
-        navigate("/");
+        stringQuery === "/login" ? navigate("/") : navigate(-1);
       } catch (error) {
         message.error("You entered the wrong account or password!");
       }
