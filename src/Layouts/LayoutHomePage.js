@@ -7,7 +7,7 @@ export default function LayoutHomePage({ Components }) {
   return (
     <>
       <HeaderHomePage />
-      <div className={`flex-grow ${isMobile ? "pt-[80px]" : "pt-[90px]"}`}>
+      <div className={`flex-grow ${isMobile ? "pt-[70px]" : "pt-[80px]"}`}>
         <Components />
       </div>
     </>

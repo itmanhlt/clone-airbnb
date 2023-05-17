@@ -7,7 +7,7 @@ export default function Layout({ Components }) {
   return (
     <>
       <HeaderOtherPage />
-      <div className={`flex-grow ${isMobile ? "pt-[70px]" : "pt-[90px]"}`}>
+      <div className={`flex-grow ${isMobile ? "pt-[70px]" : "pt-[80px]"}`}>
         <Components />
       </div>
     </>

@@ -10,7 +10,7 @@ export const filterSlice = createSlice({
   reducers: {
     showFilter: (state) => {
       if (state.status === "top-[-100px]") {
-        state.status = "top-20";
+        state.status = "top-[70px]";
       } else {
         state.status = "top-[-100px]";
       }

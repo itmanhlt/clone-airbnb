@@ -11,7 +11,7 @@ export default function HeaderOtherPage() {
   return (
     <div className="fixed top-0 bg-white w-full z-[1200]">
       <header>
-        <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5">
+        <div className="md:flex md:justify-between md:items-center md:px-10 md:py-5 max-h-[70px]">
           {isMobile ? (
             <></>
           ) : (

@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, DatePicker, Form, Input, Select, message } from "antd";
 import register_animation from "../../../assets/animation_auth.json";
 import Lottie from "lottie-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { authService } from "../../../services/AuthService";
+import { localService } from "../../../services/LocalService";
 
 export default function LogUpPage() {
   const [form] = Form.useForm();
   const { Option } = Select;
   const navigate = useNavigate();
+  let user = localService.get();
+  let params = window.location;
+
+  useEffect(() => {
+    if (user) {
+      navigate(-1);
+    } else {
+      navigate("/register");
+    }
+  }, [user]);
 
   // handle
   const onFinish = (values) => {

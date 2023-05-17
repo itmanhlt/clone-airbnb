@@ -1,11 +1,13 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showFilter } from "../../../redux/reducers/filterSlice";
 
 export default function HomePageFilter() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  let status = useSelector((state) => state.filter.status);
+
   let dispatch = useDispatch();
   return (
     <div>
@@ -73,7 +75,7 @@ export default function HomePageFilter() {
             </div>
           </div>
         </div>
-      ) : (
+      ) : status === "top-[-100px]" ? (
         <div
           onClick={() => dispatch(showFilter())}
           className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px] cursor-pointer shadow-lg"
@@ -84,6 +86,15 @@ export default function HomePageFilter() {
           <span className="p-[8px] rounded-[50%] bg-[#FF385C] text-white">
             <AiOutlineSearch />
           </span>
+        </div>
+      ) : (
+        <div
+          onClick={() => dispatch(showFilter())}
+          className="cursor-pointer flex space-x-5 text-[14px] pl-16"
+        >
+          <p>Chỗ ở</p>
+          <p>Trải nghiệm</p>
+          <p>Trải nghiệm trực tuyến</p>
         </div>
       )}
     </div>
