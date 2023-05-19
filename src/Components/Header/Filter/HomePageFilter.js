@@ -8,10 +8,38 @@ export default function HomePageFilter() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   let status = useSelector((state) => state.filter.status);
 
-  let dispatch = useDispatch();
-  return (
-    <div>
-      {isMobile ? (
+  let renderTablet = () => {
+    if (status === "top-[-100px]") {
+      return (
+        <div
+          onClick={() => dispatch(showFilter())}
+          className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px] cursor-pointer shadow-lg"
+        >
+          <span className="border-r pr-5 truncate">Địa điểm bất kì</span>
+          <span className="border-r pr-5 truncate">Tuần bất kì</span>
+          <span className="truncate">Thêm khách</span>
+          <span className="p-[8px] rounded-[50%] bg-[#FF385C] text-white">
+            <AiOutlineSearch />
+          </span>
+        </div>
+      );
+    } else {
+      return (
+        <div
+          onClick={() => dispatch(showFilter())}
+          className="cursor-pointer flex space-x-5 text-[14px] lg:pl-16"
+        >
+          <p>Chỗ ở</p>
+          <p>Trải nghiệm</p>
+          <p>Trải nghiệm trực tuyến</p>
+        </div>
+      );
+    }
+  };
+
+  let renderMobile = () => {
+    if (status === "top-[-100px]") {
+      return (
         <div style={{ padding: "14px 24px 0 24px" }}>
           <div
             onClick={() => dispatch(showFilter())}
@@ -75,28 +103,21 @@ export default function HomePageFilter() {
             </div>
           </div>
         </div>
-      ) : status === "top-[-100px]" ? (
+      );
+    } else {
+      return (
         <div
           onClick={() => dispatch(showFilter())}
-          className="flex justify-center items-center px-3 py-1 border rounded-[1000px] space-x-3 font-medium text-[14px] cursor-pointer shadow-lg"
-        >
-          <span className="border-r pr-5 truncate">Địa điểm bất kì</span>
-          <span className="border-r pr-5 truncate">Tuần bất kì</span>
-          <span className="truncate">Thêm khách</span>
-          <span className="p-[8px] rounded-[50%] bg-[#FF385C] text-white">
-            <AiOutlineSearch />
-          </span>
-        </div>
-      ) : (
-        <div
-          onClick={() => dispatch(showFilter())}
-          className="cursor-pointer flex space-x-5 text-[14px] pl-16"
+          className="cursor-pointer flex justify-center items-center h-[70px] bg-white space-x-5 text-[14px] lg:pl-16"
         >
           <p>Chỗ ở</p>
           <p>Trải nghiệm</p>
           <p>Trải nghiệm trực tuyến</p>
         </div>
-      )}
-    </div>
-  );
+      );
+    }
+  };
+
+  let dispatch = useDispatch();
+  return <div>{isMobile ? renderMobile() : renderTablet()}</div>;
 }

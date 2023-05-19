@@ -11,7 +11,6 @@ import { localService } from "../../../services/LocalService";
 export default function LogInPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let stringQuery = window.location.path;
 
   const onFinish = (values) => {
     const loginAccount = async () => {
@@ -20,7 +19,6 @@ export default function LogInPage() {
         message.success("Login successful");
         dispatch(getUserLogin(res.data.content));
         localService.set(res.data.content);
-        // stringQuery === "/login" ? navigate("/") : navigate(-1);
         navigate(-1);
       } catch (error) {
         message.error("You entered the wrong account or password!");

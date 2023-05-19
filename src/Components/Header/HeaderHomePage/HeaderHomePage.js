@@ -32,7 +32,7 @@ export default function HeaderHomePage() {
               </NavLink>
             </div>
           )}
-          <div className="header-filter px-6">
+          <div className="header-filter">
             <HomePageFilter />
           </div>
           <div className="header-userMenu">

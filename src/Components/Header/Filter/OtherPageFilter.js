@@ -26,7 +26,7 @@ export default function OtherPageFilter() {
       ) : (
         <div
           onClick={() => dispatch(showFilter())}
-          className="cursor-pointer flex space-x-5 text-[14px] pl-16"
+          className="cursor-pointer flex justify-center items-center h-[70px] bg-white space-x-5 text-[14px] lg:pl-16"
         >
           <p>Chỗ ở</p>
           <p>Trải nghiệm</p>

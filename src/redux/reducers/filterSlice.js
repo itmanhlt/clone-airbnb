@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   status: "top-[-100px]",
+  cityID: "",
 };
 
 export const filterSlice = createSlice({
@@ -16,11 +17,14 @@ export const filterSlice = createSlice({
       }
     },
     hiddenFilter: (state) => {
-      state.status = "none";
+      state.status = "top-[-100px]";
+    },
+    sendID: (state, action) => {
+      state.cityID = action.payload;
     },
   },
 });
 
-export const { showFilter, hiddenFilter } = filterSlice.actions;
+export const { showFilter, hiddenFilter, sendID } = filterSlice.actions;
 
 export default filterSlice.reducer;

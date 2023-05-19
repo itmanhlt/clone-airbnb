@@ -1,5 +1,6 @@
 import Layout from "../Layouts/Layout";
 import LayoutHomePage from "../Layouts/LayoutHomePage";
+import ErrorPage from "../Pages/User/ErrorPage/ErrorPage";
 import HomePage from "../Pages/User/HomePage/HomePage";
 import LogInPage from "../Pages/User/LogInPage/LogInPage";
 import LogUp from "../Pages/User/LogUpPage/LogUpPage";
@@ -30,7 +31,7 @@ export const routes = [
     component: <Layout Components={PersonnalInfoPage} />,
   },
   {
-    url: "/RoomByCityPage",
+    url: "/RoomByCityPage/:id",
     component: <Layout Components={RoomByCityPage} />,
   },
   {
@@ -40,5 +41,9 @@ export const routes = [
   {
     url: "/TicketByUserPage",
     component: <Layout Components={TicketByUserPage} />,
+  },
+  {
+    url: "*",
+    component: <Layout Components={ErrorPage} />,
   },
 ];

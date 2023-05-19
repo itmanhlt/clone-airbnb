@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DatePicker } from "antd";
 import { Select } from "antd";
 import dayjs from "dayjs";
 import moment from "moment/moment";
 import { locationService } from "../../../../services/locationService";
+import { useNavigate } from "react-router-dom";
+import { hiddenFilter, sendID } from "../../../../redux/reducers/filterSlice";
 
 export default function ShowFilter() {
   let status = useSelector((state) => state.filter.status);
+  let cityID = useSelector((state) => state.filter.cityID);
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
   const onChangeStart = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -40,8 +45,12 @@ export default function ShowFilter() {
 
   const { Option } = Select;
   function onChange(value) {
-    console.log(value);
+    dispatch(sendID(value));
   }
+  let handleSearch = () => {
+    navigate(`/RoomByCityPage/${cityID}`);
+    dispatch(hiddenFilter());
+  };
 
   const dateFormat = "DD-MM-YYYY";
   return (
@@ -70,7 +79,7 @@ export default function ShowFilter() {
               })}
             </Select>
           </div>
-          <div className="w-36">
+          <div className="w-36 hidden lg:block">
             <h1>Nhận phòng</h1>
             <DatePicker
               placeholder="Chọn ngày"
@@ -80,7 +89,7 @@ export default function ShowFilter() {
               bordered={false}
             />
           </div>
-          <div className="w-36">
+          <div className="w-36 hidden lg:block">
             <h1>Trả phòng</h1>
             <DatePicker
               placeholder="Chọn ngày"
@@ -91,7 +100,7 @@ export default function ShowFilter() {
             />
           </div>
           <div className="flex items-center">
-            <div>
+            <div className="hidden md:block">
               <h1>Khách</h1>
               <input
                 className="w-36"
@@ -101,7 +110,12 @@ export default function ShowFilter() {
               />
             </div>
             <div className="px-5 py-2 border rounded-full bg-[#b91c1c] hover:bg-red-800 duration-500">
-              <button className="font-medium text-white">Tìm kiếm</button>
+              <button
+                onClick={handleSearch}
+                className="font-medium text-white text-[12px] md:text-[14px]"
+              >
+                Tìm kiếm
+              </button>
             </div>
           </div>
         </div>

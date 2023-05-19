@@ -32,7 +32,7 @@ export default function HeaderOtherPage() {
               </NavLink>
             </div>
           )}
-          <div className="header-filter px-6">
+          <div className="header-filter">
             <OtherPageFilter />
           </div>
           <div className="header-userMenu">
