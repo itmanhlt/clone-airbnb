@@ -6,6 +6,7 @@ import { localService } from "../../services/LocalService";
 
 export default function UserMenuMobile() {
   const [status, setStatus] = useState("visible");
+  const [status1, setStatus1] = useState("none");
   const [scroll, setScroll] = useState(0);
   const [nextScroll, setNextScroll] = useState(0);
   let user = localService.get();
@@ -30,12 +31,58 @@ export default function UserMenuMobile() {
       setStatus("visible");
     }
   };
+  let handlePopup = () => {
+    if (status1 === "none") {
+      setStatus1("block");
+    } else {
+      setStatus1("none");
+    }
+  };
+
+  let handleSignOut = () => {
+    localService.remove();
+    window.location.reload();
+  };
+  let popUpLogin = () => {
+    return (
+      <div
+        style={{ display: status1 }}
+        className="absolute bg-white right-16 bottom-[58px] shadow-md rounded-lg text-[12px]"
+      >
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink
+            className="font-medium hover:text-[#FF385C] duration-500"
+            to="/TicketByUserPage"
+          >
+            Lịch sử đặt phòng
+          </NavLink>
+          <NavLink
+            to="/PersonnalInfoPage"
+            className=" font-medium hover:text-[#FF385C] duration-500"
+          >
+            Thông tin cá nhân
+          </NavLink>
+        </div>
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink to="/" className="hover:text-[#FF385C] duration-500">
+            Cho thuê chỗ ở qua Airbnb
+          </NavLink>
+          <NavLink to="/" className="hover:text-[#FF385C] duration-500">
+            Trợ giúp
+          </NavLink>
+        </div>
+        <div className="p-3 hover:text-[#FF385C] duration-500">
+          <NavLink onClick={handleSignOut}>Đăng xuất</NavLink>
+        </div>
+      </div>
+    );
+  };
   return (
     <div
       style={{ visibility: status }}
       className="fixed bottom-0 w-full bg-white shadow-2xl z-[1200]"
     >
-      <div className="flex justify-evenly items-center -space-x-10  py-2">
+      <div className="flex justify-evenly items-center   py-2">
         <NavLink to="/" className="flex flex-col justify-center items-center">
           <div>
             <AiOutlineSearch size={"24px"} />
@@ -59,7 +106,10 @@ export default function UserMenuMobile() {
             <div className="text-xs">Đăng nhập</div>
           </NavLink>
         ) : (
-          <NavLink className="flex flex-col justify-center items-center">
+          <NavLink
+            onClick={handlePopup}
+            className="flex flex-col justify-center items-center"
+          >
             <img
               className="w-6"
               src={
@@ -73,6 +123,7 @@ export default function UserMenuMobile() {
           </NavLink>
         )}
       </div>
+      {user ? popUpLogin() : <></>}
     </div>
   );
 }
