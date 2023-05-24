@@ -52,6 +52,14 @@ export default function UserMenuMobile() {
         <div className="flex flex-col border-b p-3 pr-10 space-y-3">
           <NavLink
             className="font-medium hover:text-[#FF385C] duration-500"
+            to="/PersonnalInfoPage"
+          >
+            {user.user.email}
+          </NavLink>
+        </div>
+        <div className="flex flex-col border-b p-3 pr-10 space-y-3">
+          <NavLink
+            className="font-medium hover:text-[#FF385C] duration-500"
             to="/TicketByUserPage"
           >
             Lịch sử đặt phòng

@@ -21,7 +21,7 @@ export default function RoomBycityPage() {
 
   return (
     <div className="px-5 md:px-8">
-      <div className="text-center py-6 font-medium">
+      <div className="text-center pb-6 font-medium">
         Danh sách phòng ở khu vực {city}
       </div>
       <div className="flex">
