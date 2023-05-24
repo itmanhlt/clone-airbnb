@@ -5,7 +5,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col px-6 pt-8 border-t bg-gray-100 mt-6">
+    <div className="flex flex-col px-6 py-6 border-t bg-gray-100 mt-6">
       <div className="flex flex-col mb-6 md:flex-row md:mb-0">
         <div className="border-b pb-6 mb-6 md:w-1/4">
           <h3 className="font-medium">Hỗ trợ</h3>

@@ -6,18 +6,27 @@ import dayjs from "dayjs";
 import moment from "moment/moment";
 import { locationService } from "../../../../services/locationService";
 import { useNavigate } from "react-router-dom";
-import { hiddenFilter, sendID } from "../../../../redux/reducers/filterSlice";
+import {
+  hiddenFilter,
+  sendCityID,
+  sendCityName,
+  sendEndDate,
+  sendQuantity,
+  sendStartDate,
+} from "../../../../redux/reducers/filterSlice";
+import { dataService } from "../../../../services/LocalService";
 
 export default function ShowFilter() {
   let status = useSelector((state) => state.filter.status);
   let cityID = useSelector((state) => state.filter.cityID);
   let dispatch = useDispatch();
   let navigate = useNavigate();
+
   const onChangeStart = (date, dateString) => {
-    console.log(date, dateString);
+    dispatch(sendStartDate(dateString));
   };
   const onChangeEnd = (date, dateString) => {
-    console.log(date, dateString);
+    dispatch(sendEndDate(dateString));
   };
   let date = moment();
   let currentDate = date.format("D-MM-YYYY");
@@ -44,8 +53,10 @@ export default function ShowFilter() {
   };
 
   const { Option } = Select;
-  function onChange(value) {
-    dispatch(sendID(value));
+  function onChange(value, id) {
+    dispatch(sendCityID(id.key));
+    dispatch(sendCityName(value));
+    dataService.set(value);
   }
   let handleSearch = () => {
     navigate(`/RoomByCityPage/${cityID}`);
@@ -75,7 +86,11 @@ export default function ShowFilter() {
               }
             >
               {option().map((item) => {
-                return <Option key={item.value}>{item.label}</Option>;
+                return (
+                  <Option key={item.value} value={item.label}>
+                    {item.label}
+                  </Option>
+                );
               })}
             </Select>
           </div>
@@ -106,6 +121,9 @@ export default function ShowFilter() {
                 className="w-36"
                 type="text"
                 placeholder="Thêm khách"
+                onChange={(e) => {
+                  dispatch(sendQuantity(e.target.value));
+                }}
                 style={{ outline: "none" }}
               />
             </div>

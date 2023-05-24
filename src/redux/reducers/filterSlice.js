@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { dataService } from "../../services/LocalService";
 
 const initialState = {
   status: "top-[-100px]",
   cityID: "",
+  cityName: dataService.get(),
+  startDate: "",
+  endDate: "",
+  quantity: "",
 };
 
 export const filterSlice = createSlice({
@@ -19,12 +24,32 @@ export const filterSlice = createSlice({
     hiddenFilter: (state) => {
       state.status = "top-[-100px]";
     },
-    sendID: (state, action) => {
+    sendCityID: (state, action) => {
       state.cityID = action.payload;
+    },
+    sendCityName: (state, action) => {
+      state.cityName = action.payload;
+    },
+    sendStartDate: (state, action) => {
+      state.startDate = action.payload;
+    },
+    sendEndDate: (state, action) => {
+      state.endDate = action.payload;
+    },
+    sendQuantity: (state, action) => {
+      state.quantity = action.payload;
     },
   },
 });
 
-export const { showFilter, hiddenFilter, sendID } = filterSlice.actions;
+export const {
+  showFilter,
+  hiddenFilter,
+  sendCityID,
+  sendCityName,
+  sendStartDate,
+  sendEndDate,
+  sendQuantity,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;
