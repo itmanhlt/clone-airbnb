@@ -20,7 +20,7 @@ export default function RoomBycityPage() {
   }, [params]);
 
   return (
-    <div className="px-8">
+    <div className="px-5 md:px-8">
       <div className="text-center py-6 font-medium">
         Danh sách phòng ở khu vực {city}
       </div>
@@ -32,7 +32,7 @@ export default function RoomBycityPage() {
         </div>
         <div className="w-1/2 hidden md:block">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501726.5407376121!2d106.3655599867944!3d10.75461812828557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zSOG7kyBDaMOtIE1pbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1684946498703!5m2!1svi!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7632681.71239111!2d104.05611139048933!3d15.956063999357486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31157a4d736a1e5f%3A0xb03bb0c9e2fe62be!2zVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1684950639297!5m2!1svi!2s"
             width="100%"
             height="100%"
             style={{ border: "0", borderRadius: "10px" }}
