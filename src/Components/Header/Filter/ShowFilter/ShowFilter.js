@@ -29,7 +29,7 @@ export default function ShowFilter() {
     dispatch(sendEndDate(dateString));
   };
   let date = moment();
-  let currentDate = date.format("D-MM-YYYY");
+  let currentDate = date.format("DD-MM-YYYY");
   let [locate, setLocate] = useState([]);
   let cloneArr = [];
 
