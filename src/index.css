@@ -7,7 +7,7 @@
 #homePage #roomList .react-multiple-carousel__arrow {
     position: absolute;
     outline: 0;
-    transition: all .5s;
+    transition: all 0.5s;
     border-radius: 35px;
     z-index: 1000;
     border: gray 1px solid;
@@ -73,3 +73,73 @@
 
 /* end RoomList */
 /* end HomePage */
+
+/* start roomDetailPage */
+#roomDetailPage h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.roomDetailPage_info .left-side__title-ava,
+.ava {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.roomDetailPage_info img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.roomDetailPage_info .left-side__title2 .item {
+    border-radius: 14px;
+    border: 1px solid #dddddd;
+    padding: 1rem 24px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 72px;
+}
+
+.roomDetailPage_info .item svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.roomDetailPage_info .sticky-item {
+    height: max-content;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+/* DatePicker */
+.dayPickerComponent {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: max-content;
+}
+
+.dayPickerComponent .rdrDefinedRangesWrapper {
+    font-size: 16px;
+}
+
+.dayPickerComponent .rdrCalendarWrapper {
+    font-size: 16px;
+}
+
+.swal2-footer a {
+    color: rgb(18, 18, 188);
+    font-size: 20px;
+    transition: all 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.swal2-footer a:hover {
+    text-decoration: underline;
+}
+
+/* end roomDetailPage */
