@@ -1,4 +1,9 @@
+import AdminDatPhong from "../AdminDatPhongPage/AdminDatPhong";
+import AdminThongTinPhong from "../AdminThongTinPhongPage/AdminThongTinPhong";
+import AdminUserPage from "../AdminUserPage/AdminUserPage";
+import AdminViTri from "../AdminViTriPage/AdminViTri";
 import Layout from "../Layouts/Layout";
+import LayoutAdmin from "../Layouts/LayoutAdmin";
 import LayoutHomePage from "../Layouts/LayoutHomePage";
 import ErrorPage from "../Pages/User/ErrorPage/ErrorPage";
 import HomePage from "../Pages/User/HomePage/HomePage";
@@ -45,5 +50,21 @@ export const routes = [
   {
     url: "*",
     component: <Layout Components={ErrorPage} />,
+  },
+  {
+    url: "/user-admin",
+    component: <LayoutAdmin Component={AdminUserPage} />,
+  },
+  {
+    url: "/datphong-admin",
+    component: <LayoutAdmin Component={AdminDatPhong} />,
+  },
+  {
+    url: "/thongtinphong-admin",
+    component: <LayoutAdmin Component={AdminThongTinPhong} />,
+  },
+  {
+    url: "/vitri-admin",
+    component: <LayoutAdmin Component={AdminViTri} />,
   },
 ];
