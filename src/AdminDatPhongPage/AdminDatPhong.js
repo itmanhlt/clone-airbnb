@@ -13,7 +13,6 @@ import {
 } from "antd";
 import { headerColums } from "./Utils";
 import { useDispatch } from "react-redux";
-import { setLoadingOff, setLoadingOn } from "../redux/reducers/spinnerSlice";
 
 export default function AdminDatPhong() {
   const [componentSize, setComponentSize] = useState("default");
@@ -43,13 +42,11 @@ export default function AdminDatPhong() {
   let deleteRoom = (id) => {
     AdminServ.deleteRoom(id)
       .then((res) => {
-        dispatch(setLoadingOn());
         message.success("Delete Success!");
         fetchRoom();
       })
       .catch((err) => {
         console.log(err);
-        dispatch(setLoadingOff());
       });
   };
   let updateRoom = (id, data) => {
@@ -67,7 +64,6 @@ export default function AdminDatPhong() {
     AdminServ.getRoomList()
       .then((res) => {
         console.log(res);
-        dispatch(setLoadingOff());
         let listUsers = res.data.content.map((room) => {
           console.log(room);
           return {
@@ -112,12 +108,9 @@ export default function AdminDatPhong() {
         });
         setRoomList(listUsers);
       })
-      .catch((err) => {
-        dispatch(setLoadingOff());
-      });
+      .catch((err) => {});
   };
   useEffect(() => {
-    dispatch(setLoadingOn());
     fetchRoom();
   }, []);
   const [form] = Form.useForm();

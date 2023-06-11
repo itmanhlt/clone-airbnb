@@ -7,3 +7,10 @@ password: 10032002Cuong
 
 account name: manhle1231@gmail.com
 password: 12345678
+
+### link to admin
+
+Quản lý người dùng: /user-admin
+Quản lý đặt phòng: /datphong-admin
+Quản lý phòng: /thongtinphong-admin
+Quản lý vị trí: /vitri-admin

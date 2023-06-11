@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { CircleLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 
 export default function Spinner() {
   let { isLoading } = useSelector((state) => {
@@ -8,10 +8,10 @@ export default function Spinner() {
   });
   return isLoading ? (
     <div
-      style={{ background: "#000000" }}
-      className="fixed w-screen h-screen top-0 left-0 flex justify-center items-center z-50"
+      style={{ background: "#fff" }}
+      className="fixed z-[2500] w-screen h-screen top-0 left-0 flex justify-center items-center"
     >
-      <CircleLoader size={100} color="#B2FFFF" />
+      <BeatLoader size={30} color="#FF385C" />
     </div>
   ) : (
     <></>

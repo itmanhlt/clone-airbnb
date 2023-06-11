@@ -22,7 +22,6 @@ const MySwal = withReactContent(Swal);
 
 export default function RoomDetailPage() {
   let param = useParams();
-  // console.log(param);
   const [room, setRoom] = useState({});
   const [location, setLocation] = useState({});
   const [review, setReview] = useState([]);
@@ -38,17 +37,13 @@ export default function RoomDetailPage() {
       .then((res) => {
         setRoom(res.data.content);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
     commentService
       .getCommentLocation(param.id)
       .then((res) => {
         setReview(res.data.content);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   useEffect(() => {
@@ -57,9 +52,7 @@ export default function RoomDetailPage() {
       .then((res) => {
         setLocation(res.data.content);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, [room]);
 
   let randomRate = (min, max) => {

@@ -3,7 +3,6 @@ import { AdminServ } from "../services/AdminService";
 import { Button, Table, Modal, Form, Input, Row, Col, message } from "antd";
 import { headerColums } from "./Utils";
 import { useDispatch } from "react-redux";
-import { setLoadingOff, setLoadingOn } from "../redux/reducers/spinnerSlice";
 
 export default function AdminViTri() {
   const [componentSize, setComponentSize] = useState("default");
@@ -35,12 +34,9 @@ export default function AdminViTri() {
   let deleteUser = (taiKhoan) => {
     AdminServ.DeleteUser(taiKhoan)
       .then((res) => {
-        dispatch(setLoadingOn());
         fetchUser();
       })
-      .catch((err) => {
-        dispatch(setLoadingOff());
-      });
+      .catch((err) => {});
   };
   let updateUser = (id, data) => {
     console.log(data);
@@ -57,7 +53,6 @@ export default function AdminViTri() {
   let fetchUser = () => {
     AdminServ.getListUser()
       .then((res) => {
-        dispatch(setLoadingOff());
         let listUsers = res.data.content.map((users) => {
           return {
             ...users,
@@ -87,13 +82,10 @@ export default function AdminViTri() {
         });
         setUserList(listUsers);
       })
-      .catch((err) => {
-        dispatch(setLoadingOff());
-      });
+      .catch((err) => {});
   };
   console.log(user);
   useEffect(() => {
-    dispatch(setLoadingOn());
     fetchUser();
   }, []);
   const [form] = Form.useForm();

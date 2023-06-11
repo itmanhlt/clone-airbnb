@@ -3,7 +3,6 @@ import { AdminServ } from "../services/AdminService";
 import { Button, Table, Modal, Form, Input, Row, Col, message } from "antd";
 import { headerColums } from "./Utils";
 import { useDispatch } from "react-redux";
-import { setLoadingOff, setLoadingOn } from "../redux/reducers/spinnerSlice";
 
 export default function AdminThongTinPhong() {
   const [componentSize, setComponentSize] = useState("default");
@@ -28,7 +27,6 @@ export default function AdminThongTinPhong() {
     setIsModalOpen(false);
   };
   useEffect(() => {
-    dispatch(setLoadingOn());
     fetchRoomInfo();
   }, []);
 
@@ -39,12 +37,9 @@ export default function AdminThongTinPhong() {
   let deleteInfoRoom = (id) => {
     AdminServ.deletleInfoRoom(id)
       .then((res) => {
-        dispatch(setLoadingOn());
         fetchRoomInfo();
       })
-      .catch((err) => {
-        dispatch(setLoadingOff());
-      });
+      .catch((err) => {});
   };
   let updateUser = (id, data) => {
     console.log(data);
@@ -61,7 +56,6 @@ export default function AdminThongTinPhong() {
   let fetchRoomInfo = () => {
     AdminServ.getInfoRoom()
       .then((res) => {
-        dispatch(setLoadingOff());
         let listRoomInfo = res.data.content.map((rooms) => {
           console.log(rooms);
           return {
@@ -92,9 +86,7 @@ export default function AdminThongTinPhong() {
         });
         setRoomList(listRoomInfo);
       })
-      .catch((err) => {
-        dispatch(setLoadingOff());
-      });
+      .catch((err) => {});
   };
 
   const [form] = Form.useForm();

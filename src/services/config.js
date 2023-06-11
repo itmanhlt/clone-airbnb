@@ -1,4 +1,6 @@
 import axios from "axios";
+import { store } from "../redux/store";
+import { setLoadingOff, setLoadingOn } from "../redux/reducers/spinnerSlice";
 
 export const BASE_URL = "https://airbnbnew.cybersoft.edu.vn";
 
@@ -13,3 +15,33 @@ export const https = axios.create({
   baseURL: BASE_URL,
   headers: configHeaders(),
 });
+
+// Add a request interceptor
+https.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    store.dispatch(setLoadingOn());
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    store.dispatch(setLoadingOff());
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+https.interceptors.response.use(
+  function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    store.dispatch(setLoadingOff());
+    return response;
+  },
+  function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    store.dispatch(setLoadingOff());
+    return Promise.reject(error);
+  }
+);
