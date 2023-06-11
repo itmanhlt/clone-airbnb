@@ -109,9 +109,7 @@ export default function RoomList() {
       .then((res) => {
         setRoomList(res.data.content);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
   let renderRoomList = () => {
     return roomList.map((room, index) => {

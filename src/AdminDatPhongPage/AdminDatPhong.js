@@ -45,9 +45,7 @@ export default function AdminDatPhong() {
         message.success("Delete Success!");
         fetchRoom();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   let updateRoom = (id, data) => {
     AdminServ.updateRoom(id, data)
@@ -56,16 +54,12 @@ export default function AdminDatPhong() {
         setRoom(res.data.content);
         fetchRoom();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   let fetchRoom = () => {
     AdminServ.getRoomList()
       .then((res) => {
-        console.log(res);
         let listUsers = res.data.content.map((room) => {
-          console.log(room);
           return {
             ...room,
             action: (

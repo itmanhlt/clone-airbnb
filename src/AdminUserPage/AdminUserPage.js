@@ -39,16 +39,13 @@ export default function AdminUserPage() {
       .catch((err) => {});
   };
   let updateUser = (id, data) => {
-    console.log(data);
     AdminServ.UpdateUser(id, data)
       .then((res) => {
         message.success("Success");
         setUser(res.data.content);
         fetchUser();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   let fetchUser = () => {
     AdminServ.getListUser()
@@ -90,7 +87,6 @@ export default function AdminUserPage() {
   const [form] = Form.useForm();
 
   const handleOnchangeForm = (e) => {
-    console.log(e.target.value);
     setUser(e.target.value);
   };
   return (

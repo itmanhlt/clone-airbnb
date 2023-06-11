@@ -42,22 +42,18 @@ export default function AdminThongTinPhong() {
       .catch((err) => {});
   };
   let updateUser = (id, data) => {
-    console.log(data);
     AdminServ.UpdateUser(id, data)
       .then((res) => {
         message.success("Success");
         setRoomInfo(res.data.content);
         fetchRoomInfo();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   let fetchRoomInfo = () => {
     AdminServ.getInfoRoom()
       .then((res) => {
         let listRoomInfo = res.data.content.map((rooms) => {
-          console.log(rooms);
           return {
             ...rooms,
             action: (

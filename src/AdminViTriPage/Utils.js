@@ -27,7 +27,6 @@ export const headerColums = [
     key: "loaiNguoiDung",
     render: (_, record) => {
       if (record.role === "admin") {
-        console.log("object");
         return <Tag color="red"> Quản Trị</Tag>;
       } else {
         return <Tag color="orange">Khách Hàng</Tag>;

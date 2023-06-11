@@ -14,9 +14,7 @@ export default function RoomBycityPage() {
       .then((res) => {
         setRoom(res.data.content);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, [params]);
 
   let renderContent = () => {

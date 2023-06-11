@@ -43,7 +43,6 @@ const LayoutAdmin = ({ Component }) => {
   const [collapsed, setCollapsed] = useState(false);
   let user = localService.get();
   useEffect(() => {
-    console.log(user.user.role);
     if (!user || user.user.role === "USER") {
       window.location.href = "/";
     }
