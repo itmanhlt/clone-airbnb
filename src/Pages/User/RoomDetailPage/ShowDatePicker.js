@@ -21,8 +21,8 @@ export default function ShowDatePicker({
   let handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
-    setStartD(moment(ranges.selection.startDate).format("DD/MM/YYYY"));
-    setEndD(moment(ranges.selection.endDate).format("DD/MM/YYYY"));
+    setStartD(moment(ranges.selection.startDate).format());
+    setEndD(moment(ranges.selection.endDate).format());
     countDays(ranges.selection.endDate, ranges.selection.startDate);
   };
   let countDays = (end, start) => {
