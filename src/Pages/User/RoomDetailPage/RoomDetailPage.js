@@ -16,6 +16,7 @@ import { pickRoomService } from "../../../services/PickRoomService";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import moment from "moment/moment";
 
 const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 const MySwal = withReactContent(Swal);
@@ -306,7 +307,11 @@ export default function RoomDetailPage() {
                   onClick={() => setShowDatePicker(!showDatePicker)}
                 >
                   <h2 className="text-left ">Nhận phòng</h2>
-                  <p className="text-left ">{startD}</p>
+                  <p className="text-left ">
+                    {startD
+                      ? "dd/mm/yyyy"
+                      : moment(startD).format("DD/MM/YYYY")}
+                  </p>
                 </button>
                 <button
                   className=" hover:bg-gray-200 rounded-tr-lg pl-2 border-gray-400 border py-2 "
@@ -314,7 +319,7 @@ export default function RoomDetailPage() {
                 >
                   <h2 className="font-bold text-left">Trả phòng</h2>
                   <p className="text-left " s>
-                    {endD}
+                    {endD ? "dd/mm/yyyy" : moment(endD).format("DD/MM/YYYY")}
                   </p>
                 </button>
                 {showDatePicker && (
