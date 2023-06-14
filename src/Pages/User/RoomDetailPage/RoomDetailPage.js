@@ -308,7 +308,7 @@ export default function RoomDetailPage() {
                 >
                   <h2 className="text-left ">Nhận phòng</h2>
                   <p className="text-left ">
-                    {startD
+                    {startD === "dd/mm/yyyy"
                       ? "dd/mm/yyyy"
                       : moment(startD).format("DD/MM/YYYY")}
                   </p>
@@ -318,8 +318,10 @@ export default function RoomDetailPage() {
                   onClick={() => setShowDatePicker(!showDatePicker)}
                 >
                   <h2 className="font-bold text-left">Trả phòng</h2>
-                  <p className="text-left " s>
-                    {endD ? "dd/mm/yyyy" : moment(endD).format("DD/MM/YYYY")}
+                  <p className="text-left ">
+                    {endD === "dd/mm/yyyy"
+                      ? "dd/mm/yyyy"
+                      : moment(endD).format("DD/MM/YYYY")}
                   </p>
                 </button>
                 {showDatePicker && (
