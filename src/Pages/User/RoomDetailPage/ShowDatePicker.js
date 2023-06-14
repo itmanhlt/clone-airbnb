@@ -21,8 +21,8 @@ export default function ShowDatePicker({
   let handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
-    setStartD(moment(ranges.selection.startDate).format("DD/MM/YYYY"));
-    setEndD(moment(ranges.selection.endDate).format("DD/MM/YYYY"));
+    setStartD(moment(ranges.selection.startDate).format());
+    setEndD(moment(ranges.selection.endDate).format());
     countDays(ranges.selection.endDate, ranges.selection.startDate);
   };
   let countDays = (end, start) => {
@@ -36,7 +36,7 @@ export default function ShowDatePicker({
   };
 
   return (
-    <div className="dayPickerComponent grid grid-cols-1 bg-white absolute top-0 lg:left-[-70%] py-5 px-3 rounded-xl space-y-4">
+    <div className="dayPickerComponent grid grid-cols-1 bg-white absolute top-0 left-[-70%] py-5 px-3 rounded-xl	space-y-4">
       <div>
         <div className="totalDays flex justify-between">
           <h2 className="pl-5 uppercase text-[#FD5861]">{sumDays} ngày</h2>

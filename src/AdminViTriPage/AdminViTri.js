@@ -4,12 +4,12 @@ import { Button, Table, Modal, Form, Input, Row, Col, message } from "antd";
 import { headerColums } from "./Utils";
 import { useDispatch } from "react-redux";
 
-export default function AdminViTri() {
+export default function AdminUserPage() {
   const [componentSize, setComponentSize] = useState("default");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [useList, setUserList] = useState([]);
+  const [position, setPosition] = useState([]);
   let dispatch = useDispatch();
-  const [user, setUser] = useState({
+  const [viTri, setViTri] = useState({
     name: "",
     email: "",
     phone: "",
@@ -28,36 +28,38 @@ export default function AdminViTri() {
   };
 
   const onFinish = () => {
-    updateUser(user.id, user);
-    fetchUser();
+    updateUser(viTri.id, position);
+    fetchViTri();
   };
   let deleteUser = (taiKhoan) => {
     AdminServ.DeleteUser(taiKhoan)
       .then((res) => {
-        fetchUser();
+        fetchViTri();
       })
       .catch((err) => {});
   };
   let updateUser = (id, data) => {
+    console.log(data);
     AdminServ.UpdateUser(id, data)
       .then((res) => {
         message.success("Success");
-        setUser(res.data.content);
-        fetchUser();
+        setViTri(res.data.content);
+        fetchViTri();
       })
       .catch((err) => {});
   };
-  let fetchUser = () => {
-    AdminServ.getListUser()
+  let fetchViTri = () => {
+    AdminServ.getViTri()
       .then((res) => {
-        let listUsers = res.data.content.map((users) => {
+        console.log(res);
+        let listViTri = res.data.content.map((viTri) => {
           return {
-            ...users,
+            ...viTri,
             action: (
               <div className="space-x-4">
                 <Button
                   onClick={() => {
-                    deleteUser(users.id);
+                    deleteUser(viTri.id);
                   }}
                   type="primary"
                   danger
@@ -67,7 +69,7 @@ export default function AdminViTri() {
                 <Button
                   onClick={() => {
                     showModal();
-                    setUser(users);
+                    setViTri(viTri);
                   }}
                   className="bg-yellow-500"
                 >
@@ -77,21 +79,21 @@ export default function AdminViTri() {
             ),
           };
         });
-        setUserList(listUsers);
+        setPosition(listViTri);
       })
       .catch((err) => {});
   };
   useEffect(() => {
-    fetchUser();
+    fetchViTri();
   }, []);
   const [form] = Form.useForm();
 
   const handleOnchangeForm = (e) => {
-    setUser(e.target.value);
+    setViTri(e.target.value);
   };
   return (
     <div>
-      <Table dataSource={useList} columns={headerColums} />
+      <Table dataSource={position} columns={headerColums} />
       <Modal
         title="Edit User"
         open={isModalOpen}
@@ -117,26 +119,26 @@ export default function AdminViTri() {
             label="Name:"
           >
             <Input
-              value={user.name}
+              value={position.name}
               onChange={(e) => {
-                setUser({ ...user, name: e.target.value });
+                setViTri({ ...viTri, name: e.target.value });
               }}
             />
           </Form.Item>
           <Form.Item label="Email:">
             <Input
               onChange={(value) => {
-                setUser({ ...user, email: value.target.value });
+                setViTri({ ...viTri, email: value.target.value });
               }}
-              value={user.email}
+              value={position.email}
             />
           </Form.Item>
           <Form.Item label="Phone:">
             <Input
               onChange={(value) => {
-                setUser({ ...user, phone: value.target.value });
+                setViTri({ ...viTri, phone: value.target.value });
               }}
-              value={user.phone}
+              value={viTri.phone}
             />
           </Form.Item>
           <Row gutter={16}>
@@ -144,7 +146,7 @@ export default function AdminViTri() {
               <Form.Item labelAlign="left" label="Gender:">
                 <select
                   onChange={(e) => {
-                    setUser({ ...user, gender: e.target.value });
+                    setViTri({ ...viTri, gender: e.target.value });
                   }}
                   name=""
                   id="gender"
@@ -159,7 +161,7 @@ export default function AdminViTri() {
                 <select
                   id="select"
                   onChange={(e) => {
-                    setUser({ ...user, role: e.target.value });
+                    setViTri({ ...viTri, role: e.target.value });
                   }}
                 >
                   <option value="admin">Admin</option>
@@ -171,9 +173,9 @@ export default function AdminViTri() {
           <Form.Item label="BirthDay:">
             <Input
               onChange={(value) => {
-                setUser({ ...user, birthday: value.target.value });
+                setViTri({ ...viTri, birthday: value.target.value });
               }}
-              value={user.birthday}
+              value={viTri.birthday}
             />
           </Form.Item>
           <Form.Item
@@ -185,7 +187,7 @@ export default function AdminViTri() {
               type="primary"
               htmlType="submit"
               onClick={(data) => {
-                updateUser(user.id, data);
+                updateUser(viTri.id, data);
               }}
             >
               Submit

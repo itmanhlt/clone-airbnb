@@ -45,7 +45,9 @@ export default function AdminDatPhong() {
         message.success("Delete Success!");
         fetchRoom();
       })
-      .catch((err) => {});
+      .catch((err) => {
+        message.error("Xóa Thất Bại");
+      });
   };
   let updateRoom = (id, data) => {
     AdminServ.updateRoom(id, data)

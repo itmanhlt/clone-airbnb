@@ -127,10 +127,16 @@ export default function RoomDetailPage() {
           maNguoiDung: user.user.id,
         })
         .then((res) => {
-          message.success("Bạn đã đặt phòng thành công");
+          MySwal.fire({
+            icon: "success",
+            title: "Đặt phòng thành công!",
+          });
         })
         .catch((err) => {
-          message.error("Đặt phòng thất bại");
+          MySwal.fire({
+            icon: "error",
+            title: "Đặt phòng thất bại!",
+          });
         });
     }
   };
@@ -313,9 +319,7 @@ export default function RoomDetailPage() {
                   onClick={() => setShowDatePicker(!showDatePicker)}
                 >
                   <h2 className="font-bold text-left">Trả phòng</h2>
-                  <p className="text-left " s>
-                    {endD}
-                  </p>
+                  <p className="text-left ">{endD}</p>
                 </button>
                 {showDatePicker && (
                   <div className="col-span-2 ">

@@ -7,30 +7,26 @@ export const headerColums = [
     key: "id",
   },
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Tên Vị Trí",
+    dataIndex: "tenViTri",
+    key: "tenViTri",
   },
   {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
+    title: "Tỉnh Thành",
+    dataIndex: "tinhThanh",
+    key: "tinhThanh",
   },
   {
-    title: "Birthday",
-    dataIndex: "birthday",
-    key: "birthday",
+    title: "Quốc Gia",
+    dataIndex: "quocGia",
+    key: "quocGia",
   },
   {
-    title: "Loại Người Dùng",
-    dataIndex: "loaiNguoiDung",
-    key: "loaiNguoiDung",
-    render: (_, record) => {
-      if (record.role === "admin") {
-        return <Tag color="red"> Quản Trị</Tag>;
-      } else {
-        return <Tag color="orange">Khách Hàng</Tag>;
-      }
+    title: "Hình Ảnh",
+    dataIndex: "hinhAnh",
+    key: "hinhAnh",
+    render: (url) => {
+      return <img width={100} height={100} src={url} alt="" />;
     },
   },
   {

@@ -162,8 +162,8 @@ export default function AdminUserPage() {
                     setUser({ ...user, role: e.target.value });
                   }}
                 >
-                  <option value="admin">Admin</option>
-                  <option value="user">User</option>
+                  <option value="ADMIN">Admin</option>
+                  <option value="USER">User</option>
                 </select>
               </Form.Item>
             </Col>

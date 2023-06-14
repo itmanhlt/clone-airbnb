@@ -25,4 +25,10 @@ export const AdminServ = {
   deletleInfoRoom: (id) => {
     return https.delete(`/api/phong-thue/${id}`);
   },
+  updateInfoRoom: (id, data) => {
+    return https.put(`/api/phong-thue/${id}`, data);
+  },
+  getViTri: () => {
+    return https.get(`/api/vi-tri`);
+  },
 };
