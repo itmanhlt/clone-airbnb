@@ -26,7 +26,7 @@ export const headerColums = [
     dataIndex: "loaiNguoiDung",
     key: "loaiNguoiDung",
     render: (_, record) => {
-      if (record.role === "admin") {
+      if (record.role === "ADMIN") {
         return <Tag color="red"> Quản Trị</Tag>;
       } else {
         return <Tag color="orange">Khách Hàng</Tag>;
