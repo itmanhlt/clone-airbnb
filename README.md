@@ -1,12 +1,12 @@
 # Admin account
 
-account name: Cuongtc981@gmail.com
-password: 10032002Cuong
+account name: it.manhlt@gmail.com
+password: 656179@a
 
 ## User account
 
-account name: manhle1231@gmail.com
-password: 12345678
+account name: it.manhlt@gmail.com
+password: 656179@a
 
 ### Link to admin
 
